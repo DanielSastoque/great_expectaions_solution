@@ -1,7 +1,86 @@
 {
   "data_asset_type": null,
   "expectation_suite_name": "simple_suite",
-  "expectations": [],
+  "expectations": [
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "passenger_count"
+      },
+      "meta": {
+        "notes": {
+          "content": "passenger_count can't be null",
+          "format": "markdown"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "extra",
+        "max_value": 1,
+        "min_value": 0
+      },
+      "meta": {
+        "notes": {
+          "content": "extra is bounded",
+          "format": "markdown"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_pair_values_a_to_be_greater_than_b",
+      "kwargs": {
+        "column_A": "total_amount",
+        "column_B": "tip_amount"
+      },
+      "meta": {
+        "notes": {
+          "content": "tip_amount must be less than total_amount",
+          "format": "markdown"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_match_strftime_format",
+      "kwargs": {
+        "column": "pickup_datetime",
+        "strftime_format": "%Y-%m-%d %H:%M:%S"
+      },
+      "meta": {
+        "notes": {
+          "content": "pickup_datetime must be a date",
+          "format": "markdown"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_match_strftime_format",
+      "kwargs": {
+        "column": "dropoff_datetime",
+        "strftime_format": "%Y-%m-%d %H:%M:%S"
+      },
+      "meta": {
+        "notes": {
+          "content": "dropoff_datetime must be a date",
+          "format": "markdown"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_min_to_be_between",
+      "kwargs": {
+        "column": "total_amount",
+        "min_value": 0
+      },
+      "meta": {
+        "notes": {
+          "content": "total_amount must be positive",
+          "format": "markdown"
+        }
+      }
+    }
+  ],
   "ge_cloud_id": null,
   "meta": {
     "great_expectations_version": "0.14.9"
